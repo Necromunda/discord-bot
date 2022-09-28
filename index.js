@@ -13,6 +13,7 @@ const { token } = require('./config.json');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+// Collection for commands
 client.commands = new Collection();
 
 const commandsPath = path.join(__dirname, 'commands');
@@ -48,12 +49,16 @@ client.once('ready', () => {
 // Uses the client.commands collection and executes the commands
 // when 'interactionCreate' event is emitted
 client.on('interactionCreate', async interaction => {
+	// Check if command is valid
 	if (!interaction.isChatInputCommand()) return;
 
+	// Get the command from the collection
     const command = interaction.client.commands.get(interaction.commandName);
 
+	// Check if commands exists
 	if (!command) return;
 
+	// Execute the command or catch the error and log it
 	try {
 		await command.execute(interaction);
 	} catch (error) {
