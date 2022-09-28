@@ -1,8 +1,21 @@
 # discord-bot
 
-## Doesn't really do anything cool yet
+## Start the bot with
+```
+npm start
+```
 
-### Config.json
+## Add commands by running
+```
+node deploy-commands
+```
+
+## Delete commands by running
+```
+node delete-commands
+```
+
+## Config.json
 ```json
 {
 	"clientId": "BOT_APPLICATION_ID",
