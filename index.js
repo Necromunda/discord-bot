@@ -1,7 +1,7 @@
 //*--------------------------------------------------*//
 //													  //
 //    Discord bot that uses discord.js node module    //
-//    to intercat with Discord API				      //
+//    to interact with Discord API				      //
 // 	  - Johannes Rantapää							  //
 //												      //
 //*--------------------------------------------------*//
@@ -16,9 +16,11 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 // Collection for commands
 client.commands = new Collection();
 
+// Get the path for commands-, and events-folders.
 const commandsPath = path.join(__dirname, 'commands');
 const eventsPath = path.join(__dirname, 'events');
 
+// Add files that end in .js to an array
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
